@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="phone_icon_size">30dp</dimen>
+    <dimen name="contact_item_v_padding">7dp</dimen>
+    <dimen name="contact_item_h_padding">3dp</dimen>
+    <dimen name="edit_text_margin">8dp</dimen>
+    <dimen name="text_button_text_size">25sp</dimen>
+    <dimen name="actions_padding">15dp</dimen>
+    <dimen name="view_contact_margin">50dp</dimen>
+    <dimen name="view_contact_phone_icon_size">60dp</dimen>
+    <dimen name="view_contact_name_text_size">25sp</dimen>
+    <dimen name="view_contact_phone_text_size">35sp</dimen>
+    <dimen name="spinner_size">80dp</dimen>
+
+</resources>

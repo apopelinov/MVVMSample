@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contact"
+            type="com.harman.domain.model.Contact" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/contact_item_h_padding"
+        android:paddingTop="@dimen/contact_item_v_padding"
+        android:paddingEnd="@dimen/contact_item_h_padding"
+        android:paddingBottom="@dimen/contact_item_v_padding">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{@string/name_template(contact.firstname, contact.lastname)}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/phoneImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Firstname Lastname" />
+
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{contact.phone}"
+            android:textColor="@color/dustyGray"
+            app:layout_constraintEnd_toStartOf="@+id/phoneImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            tools:text="(000) 000-00-00" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{contact.email}"
+            android:textColor="@color/dustyGray"
+            app:layout_constraintEnd_toStartOf="@+id/phoneImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phoneTextView"
+            tools:text="email@domain.com" />
+
+        <ImageView
+            android:id="@+id/phoneImageView"
+            android:layout_width="@dimen/phone_icon_size"
+            android:layout_height="@dimen/phone_icon_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_phone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

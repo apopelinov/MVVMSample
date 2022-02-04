@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/contactListFragment">
+
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="com.harman.contacts.ui.contacts.ContactListFragment"
+        android:label="@string/contacts">
+        <action
+            android:id="@+id/editContact"
+            app:destination="@id/editContactFragment" />
+        <action
+            android:id="@+id/viewContact"
+            app:destination="@id/viewContactFragment" />
+        <action
+            android:id="@+id/viewGithubUsers"
+            app:destination="@id/githubUsersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editContactFragment"
+        android:name="com.harman.contacts.ui.editcontact.EditContactFragment"
+        android:label="@string/edit_contact">
+        <argument
+            android:name="contactId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <action
+            android:id="@+id/viewContact"
+            app:destination="@id/viewContactFragment"
+            app:popUpTo="@id/contactListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewContactFragment"
+        android:name="com.harman.contacts.ui.viewcontact.ViewContactFragment"
+        android:label="@string/view_contact">
+        <argument
+            android:name="contactId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <action
+            android:id="@+id/editContact"
+            app:destination="@id/editContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/githubUsersFragment"
+        android:name="com.harman.contacts.ui.users.GithubUsersFragment"
+        android:label="@string/github_users" />
+</navigation>

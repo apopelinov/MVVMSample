@@ -1,0 +1,105 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+ext {
+    kotlinVersion = '1.6.10'
+    gradleVersion = '7.0.4'
+    //Android
+    androidBuildToolsVersion = "30.0.3"
+    androidMinSdkVersion = 26
+    androidTargetSdkVersion = 31
+    androidCompileSdkVersion = 31
+
+    //Libraries
+    supportLibraryVersion = '1.4.1'
+    materialVersion = '1.5.0'
+    coreKtxVersion = '1.7.0'
+    constraintLayoutVersion = '2.1.3'
+    koinVersion = '3.1.5'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.8.9'
+    lifecycleVersion = '2.2.0'//todo move 2.4.0, get rid of extensions artifact
+    navigationVersion = '2.4.0'
+    kotlinCoroutinesVersion = '1.6.0'
+    roomVersion = '2.4.1'
+    pagingVersion = '3.1.0'
+    retrofitVersion = '2.9.0'
+    okhttpVersion = '4.9.3'
+
+    //Testing
+    jUnitVersion = '4.12'
+    espressoVersion = '3.4.0'
+    coreTestingVersion = '2.1.0'
+
+    presentationDependencies = [
+            appCompat                   : "androidx.appcompat:appcompat:$supportLibraryVersion",
+            material                    : "com.google.android.material:material:$materialVersion",
+            coreKtx                     : "androidx.core:core-ktx:$coreKtxVersion",
+            koin                        : "io.insert-koin:koin-core:$koinVersion",
+            koinAndroid                 : "io.insert-koin:koin-android:$koinVersion",
+            javaxInject                 : "javax.inject:javax.inject:$javaxInjectVersion",
+            kotlinStdLibJDK7            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            constraintLayout            : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            lifecycleExtensions         : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+            lifecycleViewModel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            navigationFragment          : "androidx.navigation:navigation-fragment:$navigationVersion",
+            navigationFragmentKtx       : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi                : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            kotlinxCoroutinesAndroid    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion",
+            kotlinxCoroutinesCore       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            room                        : "androidx.room:room-runtime:${roomVersion}",
+            liveData                    : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            paging                      : "androidx.paging:paging-runtime:$pagingVersion",
+            retrofit                    : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter       : "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    ]
+    presentationTestDependencies = [
+            espresso: "androidx.test.espresso:espresso-core:$espressoVersion",
+            junit   : "junit:junit:$jUnitVersion"
+    ]
+
+    domainDependencies = [
+            javaxInject          : "javax.inject:javax.inject:$javaxInjectVersion",
+            kotlinStdLibJDK7     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            kotlinxCoroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion",
+            room                 : "androidx.room:room-runtime:${roomVersion}",
+            liveData             : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            paging               : "androidx.paging:paging-runtime:$pagingVersion"
+    ]
+
+    domainTestDependencies = [
+            junit      : "junit:junit:$jUnitVersion",
+            coreTesting: "androidx.arch.core:core-testing:$coreTestingVersion"
+    ]
+    dataDependencies = [
+            javaxInject          : "javax.inject:javax.inject:$javaxInjectVersion",
+            kotlinStdLibJDK7     : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion",
+            kotlinxCoroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion",
+            room                 : "androidx.room:room-runtime:${roomVersion}",
+            roomPaging           : "androidx.room:room-paging:${roomVersion}",
+            roomCompiler         : "androidx.room:room-compiler:${roomVersion}",
+            liveData             : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            paging               : "androidx.paging:paging-runtime:$pagingVersion",
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            okhttp               : "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    ]
+
+
+    dataTestDependencies = [
+    ]
+
+    developmentDependencies = [
+    ]
+}

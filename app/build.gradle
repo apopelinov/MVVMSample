@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.harman.contacts"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.buildConfigField "String", 'ENDPOINT', "\"https://api.github.com/\""
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+    implementation presentationDependencies.kotlinStdLibJDK7
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.material
+    implementation presentationDependencies.coreKtx
+    implementation presentationDependencies.constraintLayout
+    implementation presentationDependencies.koin
+    implementation presentationDependencies.koinAndroid
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.lifecycleExtensions
+    implementation presentationDependencies.lifecycleViewModel
+    implementation presentationDependencies.navigationFragment
+    implementation presentationDependencies.navigationFragmentKtx
+    implementation presentationDependencies.navigationUi
+    implementation presentationDependencies.kotlinxCoroutinesAndroid
+    implementation presentationDependencies.kotlinxCoroutinesCore
+    implementation presentationDependencies.room
+    implementation presentationDependencies.liveData
+    implementation presentationDependencies.paging
+    implementation presentationDependencies.retrofit
+    implementation presentationDependencies.retrofitGsonConverter
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    testImplementation presentationTestDependencies.junit
+    androidTestImplementation(presentationTestDependencies.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}

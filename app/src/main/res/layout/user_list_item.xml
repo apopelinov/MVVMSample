@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.harman.domain.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/contact_item_h_padding"
+        android:paddingTop="@dimen/contact_item_v_padding"
+        android:paddingEnd="@dimen/contact_item_h_padding"
+        android:paddingBottom="@dimen/contact_item_v_padding">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.login}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Firstname Lastname" />
+
+        <TextView
+            android:id="@+id/htmlUrlTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.htmlUrl}"
+            android:textColor="@color/dustyGray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            tools:text="https://abc.com" />
+
+        <TextView
+            android:id="@+id/userIdTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.id}"
+            android:textColor="@color/dustyGray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/htmlUrlTextView"
+            tools:text="57" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
