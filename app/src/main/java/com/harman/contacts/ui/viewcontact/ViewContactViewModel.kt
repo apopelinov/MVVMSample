@@ -10,9 +10,8 @@ import com.harman.domain.interactor.DeleteContact
 import com.harman.domain.interactor.GetContactById
 import com.harman.domain.model.Contact
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class ViewContactViewModel @Inject constructor(
+class ViewContactViewModel constructor(
     private val getContactById: GetContactById,
     private val deleteContact: DeleteContact
 ) : BaseViewModel() {

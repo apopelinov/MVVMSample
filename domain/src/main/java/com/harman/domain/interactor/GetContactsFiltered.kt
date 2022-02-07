@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import com.harman.domain.model.Contact
 import com.harman.domain.repository.ContactsRepository
-import javax.inject.Inject
 
 class GetContactsFiltered constructor(private val contactsRepository: ContactsRepository) :
     UseCase<GetContactsFiltered.Param, LiveData<PagingData<Contact>>>() {

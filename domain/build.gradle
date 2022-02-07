@@ -27,7 +27,6 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation domainDependencies.javaxInject
     implementation domainDependencies.kotlinxCoroutinesCore
     implementation domainDependencies.kotlinStdLibJDK7
     implementation domainDependencies.gson

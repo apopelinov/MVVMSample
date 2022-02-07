@@ -5,33 +5,33 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.harman.domain.model.Contact
+import com.harman.data.db.model.DbContact
 
 @Dao
 abstract class ContactDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun saveContact(contact: Contact): Long
+    abstract fun saveContact(contact: DbContact): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insertContacts(contacts: List<Contact>)
+    abstract fun insertContacts(contacts: List<DbContact>)
 
-    @Query("SELECT * FROM Contact WHERE id = :id")
-    abstract fun getContactById(id: Long): Contact
+    @Query("SELECT * FROM DbContact WHERE id = :id")
+    abstract fun getContactById(id: Long): DbContact?
 
-    @Query("DELETE FROM Contact WHERE id = :id")
+    @Query("DELETE FROM DbContact WHERE id = :id")
     abstract fun deleteContact(id: Long)
 
-    @Query("SELECT * FROM Contact")
-    abstract fun getContactsPaging(): PagingSource<Int, Contact>
+    @Query("SELECT * FROM DbContact")
+    abstract fun getContactsPaging(): PagingSource<Int, DbContact>
 
     @Query(
         """
-        SELECT * FROM Contact
+        SELECT * FROM DbContact
         WHERE firstname || ' ' || lastname || phone || email LIKE :filter"""
     )
-    abstract fun getContactsFiltered(filter: String): PagingSource<Int, Contact>
+    abstract fun getContactsFiltered(filter: String): PagingSource<Int, DbContact>
 
 
-    @Query("SELECT * FROM Contact")
-    abstract fun getAllContacts(): List<Contact>
+    @Query("SELECT * FROM DbContact")
+    abstract fun getAllContacts(): List<DbContact>
 }
