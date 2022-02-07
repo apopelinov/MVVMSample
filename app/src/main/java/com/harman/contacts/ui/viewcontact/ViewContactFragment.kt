@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.harman.contacts.databinding.ViewContactFragmentBinding
 import com.harman.contacts.vo.State
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import javax.inject.Inject
 
 class ViewContactFragment : Fragment() {
 

@@ -5,7 +5,6 @@ import com.harman.domain.repository.ContactsRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
-import javax.inject.Inject
 
 class ImportContacts constructor(private val contactsRepository: ContactsRepository) :
     UseCase<Uri, Int>() {

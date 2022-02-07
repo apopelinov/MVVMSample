@@ -30,7 +30,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':domain')
     implementation dataDependencies.kotlinStdLibJDK7
-    implementation dataDependencies.javaxInject
     implementation dataDependencies.kotlinxCoroutinesCore
     implementation dataDependencies.gson
     implementation dataDependencies.retrofit

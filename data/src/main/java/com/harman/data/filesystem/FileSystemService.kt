@@ -4,12 +4,8 @@ import android.content.Context
 import android.net.Uri
 import com.google.gson.Gson
 import java.io.IOException
-import javax.inject.Inject
 
-class FileSystemService @Inject constructor(private val context: Context) {
-    private val gson: Gson by lazy {
-        Gson()
-    }
+class FileSystemService constructor(private val context: Context) {
 
     @Throws(IOException::class)
     fun <T> read(uri: Uri, classOfT: Class<T>): T {

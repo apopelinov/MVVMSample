@@ -12,7 +12,6 @@ import com.harman.domain.interactor.GetContactsFiltered
 import com.harman.domain.interactor.ImportContacts
 import kotlinx.coroutines.launch
 import java.util.*
-import javax.inject.Inject
 
 class ContactListViewModel(
     private val getContacts: GetContacts,
