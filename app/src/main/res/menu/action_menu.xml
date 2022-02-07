@@ -15,9 +15,7 @@
         android:iconTint="@color/white"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/import_contacts"
-        android:title="@string/import_contacts" />
-    <item
-        android:id="@+id/export_contacts"
-        android:title="@string/export_contacts" />
+        android:id="@+id/open_about"
+        app:showAsAction="ifRoom"
+        android:title="@string/about" />
 </menu>

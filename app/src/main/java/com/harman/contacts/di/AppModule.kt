@@ -8,12 +8,11 @@ import com.harman.contacts.ui.contacts.ContactListViewModel
 import com.harman.contacts.ui.editcontact.EditContactViewModel
 import com.harman.contacts.ui.users.GithubUsersViewModel
 import com.harman.contacts.ui.viewcontact.ViewContactViewModel
-import com.harman.domain.repository.ContactsRepository
 import com.harman.data.db.ContactDao
 import com.harman.data.db.ContactsDb
-import com.harman.data.filesystem.FileSystemService
 import com.harman.data.net.GithubUsersAPI
 import com.harman.domain.interactor.*
+import com.harman.domain.repository.ContactsRepository
 import com.harman.domain.repository.UsersRepository
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -26,7 +25,7 @@ import java.util.concurrent.TimeUnit
 
 
 val appModule = module {
-    single<ContactsRepository> { com.harman.data.repository.ContactsRepository(get(), get()) }
+    single<ContactsRepository> { com.harman.data.repository.ContactsRepository(get()) }
     single<UsersRepository> { com.harman.data.repository.UsersRepository(get()) }
     single<ContactsDb> {
         Room
@@ -35,7 +34,6 @@ val appModule = module {
             .build()
     }
     single<ContactDao> { get<ContactsDb>().contactDao() }
-    single<FileSystemService> { FileSystemService(androidContext()) }
 }
 
 val networkModule = module {
@@ -64,7 +62,7 @@ private const val TIMEOUT_MILLIS = 30000L
 private const val CACHE_MAX_SIZE_BYTES = 1024L
 
 val viewModelModule = module {
-    viewModel { ContactListViewModel(get(), get(), get(), get()) }
+    viewModel { ContactListViewModel(get(), get()) }
     viewModel { EditContactViewModel(get(), get()) }
     viewModel { ViewContactViewModel(get(), get()) }
     viewModel { GithubUsersViewModel(get()) }
@@ -72,11 +70,9 @@ val viewModelModule = module {
 
 val useCasesModule = module {
     single { DeleteContact(get()) }
-    single { ExportContacts(get()) }
     single { GetContactById(get()) }
     single { GetContacts(get()) }
     single { GetContactsFiltered(get()) }
-    single { ImportContacts(get()) }
     single { SaveContact(get()) }
     single { GetUsers(get()) }
 }

@@ -1,6 +1,5 @@
 package com.harman.domain.repository
 
-import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import com.harman.domain.model.Contact
@@ -10,8 +9,6 @@ interface ContactsRepository : Repository {
     suspend fun getContactById(contactId: Long): Contact?
     suspend fun deleteContact(contactId: Long)
     suspend fun getContactsFiltered(pageSize: Int, filter: String): LiveData<PagingData<Contact>>
-    suspend fun importContacts(uri: Uri): List<Contact>
-    suspend fun exportContacts(uri: Uri)
     suspend fun saveContact(contact: Contact): Long
     suspend fun insertContacts(contacts: List<Contact>)
     suspend fun getAllContacts(): List<Contact>

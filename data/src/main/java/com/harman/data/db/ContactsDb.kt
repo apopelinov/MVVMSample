@@ -2,11 +2,11 @@ package com.harman.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.harman.domain.model.Contact
+import com.harman.data.db.model.DbContact
 
 @Database(
-    entities = [Contact::class],
-    version = 1,
+    entities = [DbContact::class],
+    version = 2,
     exportSchema = false
 )
 abstract class ContactsDb: RoomDatabase() {

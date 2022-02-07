@@ -15,6 +15,9 @@
             android:id="@+id/viewContact"
             app:destination="@id/viewContactFragment" />
         <action
+            android:id="@+id/openAbout"
+            app:destination="@id/viewAboutFragment" />
+        <action
             android:id="@+id/viewGithubUsers"
             app:destination="@id/githubUsersFragment" />
     </fragment>
@@ -43,6 +46,11 @@
         <action
             android:id="@+id/editContact"
             app:destination="@id/editContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewAboutFragment"
+        android:name="com.harman.contacts.ui.about.AboutFragment"
+        android:label="@string/view_about">
     </fragment>
     <fragment
         android:id="@+id/githubUsersFragment"
