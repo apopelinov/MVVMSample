@@ -46,6 +46,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':domain')
     implementation project(path: ':data')
+    implementation project(':kmmsharedmodule')
     implementation presentationDependencies.kotlinStdLibJDK7
     implementation presentationDependencies.appCompat
     implementation presentationDependencies.material
